@@ -14,7 +14,7 @@ make valgrind
 terminate called after throwing an instance of 'std::bad_weak_ptr'
   what():  bad_weak_ptr
 ```
-`shared_from_this()` can only be called on an object that is _already being managed by a shared pointer_. There are a couple of ways to run afoul of this prerequisite.
+`shared_from_this()` can only be called on an object that is _already being managed by a shared pointer_. There are a couple of ways to run afoul of this prerequisite: notably trying to use `shared_from_this()` inside the constructor.
 
 ### 4. double free from bad multiple ownership
 ```
