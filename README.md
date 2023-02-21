@@ -36,3 +36,6 @@ If the wrapper class is being owned by a `std::shared_ptr`, then you can give a 
 
 ### 8. Using a reference
 This is similar to using a raw pointer, but this requires that the reference variable be initialized in the constructor, rather than deferred in an init method.
+
+### 9. Workaround for 5. when shared_ptr is required (additional wrapper)
+If you have a class interface that requires receiving a shared pointer, if you can refactor other classes to make that shared ptr not own the inside class that requires the shared pointer.
