@@ -9,6 +9,10 @@ public:
   Inside(std::shared_ptr<Outside> outside)
   : outside_(outside) {}
 
+  ~Inside() {
+    std::cout << "Inside destroyed" << std::endl;
+  }
+
 private:
   std::shared_ptr<Outside> outside_;
 };
@@ -19,6 +23,10 @@ public:
   void init()
   {
     inside_ = std::make_unique<Inside>(shared_from_this());
+  }
+
+  ~Outside() {
+    std::cout << "Outside destroyed" << std::endl;
   }
 
 private:

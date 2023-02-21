@@ -15,6 +15,10 @@ public:
     std::cout << "during use() ref count: " << shared.use_count() << std::endl;
   }
 
+  ~Inside() {
+    std::cout << "Inside destroyed" << std::endl;
+  }
+
 private:
   std::weak_ptr<Outside> outside_;
 };
@@ -30,6 +34,10 @@ public:
   void use()
   {
     inside_->use();
+  }
+
+  ~Outside() {
+    std::cout << "Outside destroyed" << std::endl;
   }
 
 private:
