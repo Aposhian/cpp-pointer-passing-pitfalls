@@ -33,3 +33,6 @@ By passing a raw pointer to the wrapped class, it doesn't do any reference count
 
 ### 7. Using a `std::weak_ptr`
 If the wrapper class is being owned by a `std::shared_ptr`, then you can give a `std::weak_ptr` to the wrapped class with `weak_from_this()`. This lets the wrapped class only increment the reference count when it actually needs to use it, rather than holding onto a reference forever like in #5.
+
+### 8. Using a reference
+This is similar to using a raw pointer, but this requires that the reference variable be initialized in the constructor, rather than deferred in an init method.
